@@ -1,0 +1,41 @@
+{
+  "name": "vlang-loader",
+  "version": "0.0.1",
+  "description": "Webpack loader for the V programming language; supports JS and WASM builds",
+  "license": "MIT",
+  "repository": "spaceface777/vlang-loader",
+  "author": "spaceface777",
+  "homepage": "https://github.com/spaceface777/vlang-loader",
+  "bugs": "https://github.com/spaceface777/vlang-loader/issues",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "webpack",
+    "test:watch": "webpack --watch"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "cross-spawn": "^7.0.3",
+    "loader-utils": "^2.0.0",
+    "schema-utils": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/loader-utils": "^2.0.1",
+    "@types/node": "^14.0.23",
+    "@types/webpack": "^4.41.21",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "keywords": [
+    "v",
+    "vlang",
+    "vlang-loader",
+    "wasm",
+    "webassembly",
+    "webpack",
+    "loader",
+    "webpack-loader"
+  ]
+}
