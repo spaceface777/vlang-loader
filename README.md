@@ -60,11 +60,21 @@ fn main() {
 
 
 ### Limitations
- - For now, you **need the V compiler installed**, since this plugin will look for a `v` executable in your PATH.
+ - For now, you **need the V compiler installed**, since this module will look for a `v` executable in your PATH.
  - In the future (whenever V stabilizes a little), a WebAssembly compiled binary of the V compiler may be bundled along with this library, and used if the V compiler is not found.
- - This plugin is just an integration between V and Webpack, so **any issues with V will also occur in this module**. If your code does not compile, first try to compile it with the regular V compiler. If that does not work either, report an issue in the [regular V repo](https://github.com/vlang/v). If it *does* work, open an issue here.
+ - This loader is just an integration between V and Webpack, so **any issues with V will also occur in this module**. If your code does not compile, first try to compile it with the regular V compiler. If that does not work either, report an issue in the [regular V repo](https://github.com/vlang/v). If it *does* work, open an issue here.
 
 
 ### TODOs
  - Implement WebAssembly generation via C->JS using `emscripten`
  - Implement code splitting per V module (`builtin` especially), to avoid bundling everything per output file. This will allow for smaller download sizes.
+
+
+### Code structure
+
+The loader itself is in `src`. The tests are located in `tests`, each subfolder is an independent project. They're all compiled separately, and their runtime output is compared to that of `expected_out.txt`.  
+To run the tests, use `npm test`.
+
+### Contributing
+
+Contributions are welcome, but please make sure to keep the same code style (no semicolons, single quotes, tabs...)
