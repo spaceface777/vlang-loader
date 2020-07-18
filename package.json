@@ -10,8 +10,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "webpack",
-    "test:watch": "webpack --watch"
+    "test": "node tests/run_tests.js"
   },
   "peerDependencies": {},
   "dependencies": {

@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
     mode: 'development',
+    node: false,
     entry: path.resolve('src/main.v'),
     resolve: {
         extensions: ['.js', '.v'],
@@ -13,7 +14,7 @@ module.exports = {
         rules: [
             {
                 test: /\.v$/,
-                use: path.resolve('../dist/index.js')
+                use: path.resolve('../../dist/index.js')
             }
         ]
     }

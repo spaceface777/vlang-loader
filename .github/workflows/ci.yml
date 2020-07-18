@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Build V
+      run: |
+        git clone https://github.com/vlang/v
+        cd v
+        make
+        pwd
+        echo "::add-path::`pwd`"
+
+    - name: Build module
+      run: |
+        npm i
+        npm run build
+
+    - name: Test module
+      run: npm test
