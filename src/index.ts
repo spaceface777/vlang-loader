@@ -10,7 +10,7 @@ const append_output = (out: string) => v_output.push(out)
 const tmp_file = path.join(os.tmpdir(), '__v_webpack_tmp__')
 const tmp_file_js = `${tmp_file}.js`
 
-export default function loader(this: loader.LoaderContext, __source: string) {
+export default function loader(this: loader.LoaderContext, _source: string) {
 	const cb = this.async()
 	const file_path = this.resourcePath
 	const v_cmd = spawn('v', ['-b', 'js', '-o', tmp_file, file_path], {})

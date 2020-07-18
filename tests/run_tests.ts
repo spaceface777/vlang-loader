@@ -4,7 +4,7 @@ import path from 'path'
 import spawn from 'cross-spawn'
 
 const webpack_path = path.resolve(__dirname, '../node_modules/webpack-cli/bin/cli.js')
-const test_dirs = fs.readdirSync(__dirname).filter(f => fs.lstatSync(path.join(__dirname, f)).isDirectory())
+const test_dirs = fs.readdirSync(__dirname).filter(f => fs.lstatSync(path.join(__dirname, f)).isDirectory() && f !== 'common')
 const nr_tests = test_dirs.length
 
 const pad = (n: number) => ('' + n).padStart(('' + nr_tests).length, ' ')

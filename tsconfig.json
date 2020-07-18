@@ -24,5 +24,8 @@
 
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": [
+    "./tests/**/*"
+  ]
 }
