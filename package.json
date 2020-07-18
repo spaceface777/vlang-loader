@@ -10,19 +10,17 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "node tests/run_tests.js"
+    "test": "ts-node tests/run_tests.ts"
   },
   "peerDependencies": {},
   "dependencies": {
-    "@types/cross-spawn": "^6.0.2",
-    "cross-spawn": "^7.0.3",
-    "loader-utils": "^2.0.0",
-    "schema-utils": "^2.7.0"
+    "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
-    "@types/loader-utils": "^2.0.1",
+    "@types/cross-spawn": "^6.0.2",
     "@types/node": "^14.0.23",
     "@types/webpack": "^4.41.21",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.7",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"

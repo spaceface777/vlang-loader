@@ -1,31 +1,31 @@
-const vm = require('vm')
-const fs = require('fs')
-const path = require('path')
-const spawn = require('cross-spawn')
+import vm from 'vm'
+import fs from 'fs'
+import path from 'path'
+import spawn from 'cross-spawn'
 
 const webpack_path = path.resolve(__dirname, '../node_modules/webpack-cli/bin/cli.js')
 const test_dirs = fs.readdirSync(__dirname).filter(f => fs.lstatSync(path.join(__dirname, f)).isDirectory())
 const nr_tests = test_dirs.length
 
-const pad = n => ('' + n).padStart(('' + nr_tests).length, ' ')
-const ok = (i, msg) => console.log(`\x1b[32mOK\x1b[0m   [${pad(i+1)}/${nr_tests}] ${msg}`)
-const fail = (i, msg) => console.log(`\x1b[31mFAIL\x1b[0m [${pad(i+1)}/${nr_tests}] ${msg}`)
+const pad = (n: number) => ('' + n).padStart(('' + nr_tests).length, ' ')
+const ok = (i: number, msg: string) => console.log(`\x1b[32mOK\x1b[0m   [${pad(i+1)}/${nr_tests}] ${msg}`)
+const fail = (i: number, msg: string) => console.log(`\x1b[31mFAIL\x1b[0m [${pad(i+1)}/${nr_tests}] ${msg}`)
 
 const sandbox = {
     console: {
-        log: str => out.push(str + '\n')
+        log: (str: string) => out.push(str + '\n')
     },
     process: {
         stdout: {
-            write: str => out.push(str)
+            write: (str: string) => out.push(str)
         },
         stderr: {
-            write: str => out.push(str)
+            write: (str: string) => out.push(str)
         }
     }
 }
 
-let out = []
+let out: string[] = []
 
 for (const [i, _dir] of test_dirs.entries()) {
     const dir = path.join(__dirname, _dir)
