@@ -34,14 +34,12 @@ And that's all the setup you'll need. Run `npx webpack`, and you'll see Webpack'
 
 As with other loaders, it can be chained, so (for example) you may use something like `UglifyJS` to further minify the output.
 
-**Webpack's HMR also works**, so you'll be able to keep the convenience of having your page update automatically on every change. However, it reloads the page by default, since you need to call `module.hot.accept()` to allow HMR to happen.
-
-This will be fixed in the future, but for now you can use this workaround:
-
+**Webpack's HMR also works**, so you have the convenience of having your page update automatically on every change, while developing in V. Note that Webpack's default behavior is to reload the page, rather than applying the changes live. You need to call `module.hot.accept()` to allow HMR.
+This will be fixed in the future, but for now you can use this as a workaround:
 
 `src/hmr/hmr.js.v`:
 ```v
-module foo
+module hmr
 
 pub fn accept() {
 	#if (module.hot) module.hot.accept(() => true)
@@ -50,11 +48,11 @@ pub fn accept() {
 
 `src/main.v`:
 ```v
-import foo
+import hmr
 
 fn main() {
 	println('Hello from Webpack + V.js + HMR!')
-    hot.accept()
+    hmr.accept()
 }
 ```
 
@@ -72,9 +70,9 @@ fn main() {
 
 ### Code structure
 
-The loader itself is in `src`. The tests are located in `tests`, each subfolder is an independent project. They're all compiled separately, and their runtime output is compared to that of `expected_out.txt`.  
+The loader itself is in `src`. Tests for it are located in `tests`, each subfolder is an independent project and is compiled separately. Their runtime output is compared to the contents of `expected_out.txt`, if they match the test was successful.  
 To run the tests, use `npm test`.
 
 ### Contributing
 
-Contributions are welcome, but please make sure to keep the same code style (no semicolons, single quotes, tabs...)
+Contributions are welcome. Please make sure to keep the same code style (no semicolons, single quotes, indentation using tabs...)
