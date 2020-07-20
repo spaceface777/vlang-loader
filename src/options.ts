@@ -4,9 +4,10 @@ import webpack from 'webpack'
 
 import schema from './schema'
 
-type VOptions = Readonly<{
-	instance: string
+export type VOptions = Readonly<{
 	shared: boolean
+	enable_globals: boolean
+	sourcemap: boolean
 }>
 
 let v_instances = new WeakMap<webpack.Compiler, VOptions>()

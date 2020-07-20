@@ -19,10 +19,7 @@ const default_config: webpack.Configuration = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin()
-	],
-	output: {
-		filename: 'output.js'
-	}
+	]
 }
 
 export default default_config

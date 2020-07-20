@@ -1,4 +1,9 @@
-import { merge } from 'webpack-merge'
-import config from '../_common/default_config'
+// Simplest possible config: don't reuse the common one here
+import path from 'path'
 
-export default merge(config, {})
+export default {
+    entry: './src/main.v',
+    module: {
+        rules: [{ test: /\.v$/, use: path.resolve('../../../dist/index.js') }]
+    }
+}

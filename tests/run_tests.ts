@@ -50,7 +50,7 @@ function test_all_in_dir(...paths: string[]) {
 		let expected_out = ''
 
 		try {
-			out_js = fs.readFileSync(path.join(dir, 'dist/output.js'), 'utf8')
+			out_js = fs.readFileSync(path.join(dir, 'dist/main.js'), 'utf8')
 			expected_out = fs.readFileSync(path.join(dir, 'expected_out.txt'), 'utf8')
 
 			vm.runInNewContext(out_js, sandbox)

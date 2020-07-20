@@ -5,6 +5,7 @@ import spawn from 'cross-spawn'
 import webpack from 'webpack'
 
 import { get_options } from './options'
+import { parse_options } from './config'
 
 let v_output: string[] = []
 const append_output = (out: string) => v_output.push(out)
@@ -20,12 +21,10 @@ export default function loader(this: webpack.loader.LoaderContext, _source: stri
 	const tmp_file = get_tmp_file()
 
 	const v_options = ['-b', 'js']
+	const user_options = parse_options(this, options)
 	const tmp_out = ['-o', tmp_file, file_path]
 
-	if (this.mode === 'production') v_options.push('-prod')
-	if (options.shared) v_options.push('-shared')
-
-	const v_cmd = spawn('v', [...v_options, ...tmp_out])
+	const v_cmd = spawn('v', [...v_options, ...user_options, ...tmp_out])
 	v_cmd.stdout?.on('data', append_output)
 	v_cmd.stderr?.on('data', append_output)
 	v_cmd.on('close', code => {
