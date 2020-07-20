@@ -5,12 +5,19 @@ import path from 'path'
 const default_config: webpack.Configuration = {
 	mode: 'production',
 	node: false,
-	entry: path.resolve('src/main.js'),
+	entry: path.resolve('src/main.ts'),
 	resolve: {
-		extensions: ['.js', '.v'],
+		extensions: ['.js', '.ts', '.v'],
 	},
 	module: {
 		rules: [
+			{
+				test: /\.ts$/,
+				use: {
+					loader: 'ts-loader',
+					options: {}
+				}
+			},
 			{
 				test: /\.v$/,
 				use: {

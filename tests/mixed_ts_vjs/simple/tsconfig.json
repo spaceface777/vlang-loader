@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "paths": {
+      "mod1": ["./mod1"]
+    }
+  }
+}
