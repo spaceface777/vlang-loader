@@ -1,0 +1,2 @@
+[module mod1] Greetings from V.js, mod2!
+[module mod2] Greetings from V.js, mod1!

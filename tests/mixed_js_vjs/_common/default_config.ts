@@ -3,9 +3,9 @@ import webpack from 'webpack'
 import path from 'path'
 
 const default_config: webpack.Configuration = {
-	mode: 'development',
+	mode: 'production',
 	node: false,
-	entry: path.resolve('src/main.v'),
+	entry: path.resolve('src/main.js'),
 	resolve: {
 		extensions: ['.js', '.v'],
 	},
@@ -13,7 +13,7 @@ const default_config: webpack.Configuration = {
 		rules: [
 			{
 				test: /\.v$/,
-				use: path.resolve('../../dist/index.js')
+				use: path.resolve('../../../dist/index.js')
 			}
 		]
 	},

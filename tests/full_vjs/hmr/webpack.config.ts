@@ -1,5 +1,5 @@
 import { merge } from 'webpack-merge'
-import config from '../common/default_config'
+import config from '../_common/default_config'
 import path from 'path'
 
 // `devServer` is not part of the default webpack config, so
